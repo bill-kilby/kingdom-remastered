@@ -19,20 +19,29 @@ Below are some examples of the current generation.
 </p>
 <p align="center"><i>An example generation with normal settings</i></p>
 
+
 <p align="center">
   <img src="https://github.com/bill-kilby/kingdom-remastered/assets/112211584/0ee2fc51-991a-4228-9a64-5f3c037882ec" alt="drawing" width="50%"/>
 </p>
 <p align="center"><i>An example generation with normal settings, on a medium-sized map.</i></p>
+
 
 <p align="center">
   <img src="https://github.com/bill-kilby/kingdom-remastered/assets/112211584/58ee35ee-8459-420f-9155-af83be79b3ec" alt="drawing" width="50%"/>
 </p>
 <p align="center"><i>An example generation with normal settings, but with overflowing rivers and an extreme topography.</i></p>
 
+
 <p align="center">
   <img src="https://github.com/bill-kilby/kingdom-remastered/assets/112211584/ffbc356a-a5ee-49b8-9a06-5dd0d13b927b" alt="drawing" width="50%"/>
 </p>
 <p align="center"><i>An example generation with normal settings, on a huge-sized map (experimental).</i></p>
+
+
+<p align="center">
+  <img src="https://github.com/bill-kilby/kingdom-remastered/assets/112211584/ee38bbea-d539-4d42-8f77-6b0ec0cf696e" alt="drawing" width="50%"/>
+</p>
+<p align="center"><i>The current different generation options.</i></p>
 
 ## License
 
