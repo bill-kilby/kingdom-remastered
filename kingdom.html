@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom</title>
+    <link href="./kingdom.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../../bk_logo.jpg">
+</head>
+<!-- Main content of page -->
+
+<body>
+    <!-- Script containing map class -->
+    <script src="./scripts/worldmap.js"></script>
+    <!-- Script containing priority queue class -->
+    <script src="./scripts/priority_queue.js"></script>
+    <!-- Script containing kingdom class -->
+    <script src="./scripts/kingdom.js"></script>
+    <!-- Script containing back end map generation -->
+    <script src="./scripts/main.js"></script>
+    <!-- Script containing hexagon class -->
+    <script src="./scripts/hexagon.js"></script>
+    <!-- Script to html representation of maps. -->
+    <script src="./scripts/draw_map.js"></script>
+    <!-- Script to hold button options. -->
+    <script src="./scripts/button_handler.js"></script>
+
+
+
+    <!-- Alert letting them know it doesn't work on mobile. -->
+    <div class="visible md:hidden text-2xl text-center"><b>THIS TOOL IS DESKTOP ONLY.</b></div>
+    <div
+        class="invisible md:visible h-0 max-w-screen-prose items-center md:w-auto flex md:h-full justify-center items-center font-sans md:overflow-y-auto w-full bg-gradient-to-b from-zinc-200 to-zinc-600">
+        <!-- Generator -->
+        <div
+            class="mt-0 mb-0 md:mb-8 md:mt-8 invisible md:w-fit md:h-[875px] flex items-center justify-center md:visible mx-auto">
+            <!-- Side bar on the left containing options, etc.-->
+            <div class="w-[440px] h-full border-4 border-slate-700 bg-slate-100 rounded-lg">
+                <div class="bt-8 text-2xl text-center"><b>Kingdom Map Generator</b></div>
+                <!-- Options -->
+                <div class="m-8 p-4 w-4/5 h-auto bg-slate-200 rounded-lg text-center">
+                    <!-- Map size -->
+                    <div class="pb-2 bg-slate-300 rounded-lg">
+                        <div class="text-center"> <b>Map Size:</b> </div>
+                        <!-- Options-->
+                        <div class="flex items-center justify-between w-full">
+                            <button id="map_button_size_small" onclick="choose_size('small')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Small
+                            </button>
+                            <button id="map_button_size_medium" onclick="choose_size('medium')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Medium
+                            </button>
+                            <button id="map_button_size_large" onclick="choose_size('large')"
+                                class="bg-slate-100 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Large
+                            </button>
+                            <button id="map_button_size_huge" onclick="choose_size('huge')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Huge
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Style of generation -->
+                    <div class="pb-2 mt-2 bg-slate-300 rounded-lg">
+                        <div class="text-center"> <b>Map Style:</b> </div>
+                        <!-- Options-->
+                        <div class="flex items-center justify-between w-full">
+                            <button id="map_button_style_islands" onclick="choose_style('islands')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Islands
+                            </button>
+                            <button id="map_button_style_realistic" onclick="choose_style('realistic')"
+                                class="bg-slate-100 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Realistic
+                            </button>
+                            <button id="map_button_style_chunky" onclick="choose_style('chunky')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Chunky
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Topography -->
+                    <div class="pb-2 mt-2 bg-slate-300 rounded-lg">
+                        <div class="text-center"> <b>Topography:</b> </div>
+                        <!-- Options-->
+                        <div class="flex items-center justify-between w-full">
+                            <button id="map_button_topography_flat" onclick="choose_topography('flat')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Flat
+                            </button>
+                            <button id="map_button_topography_low" onclick="choose_topography('low')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Low 
+                            </button>
+                            <button id="map_button_topography_medium" onclick="choose_topography('medium')"
+                                class="bg-slate-100 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Medium 
+                            </button>
+                            <button id="map_button_topography_extreme" onclick="choose_topography('extreme')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Extreme
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Vegetation -->
+                    <div class="pb-2 mt-2 bg-slate-300 rounded-lg">
+                        <div class="text-center"> <b>Vegetation:</b> </div>
+                        <!-- Options-->
+                        <div class="flex items-center justify-between w-full">
+                            <button id="map_button_vegetation_barren" onclick="choose_vegetation('barren')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Barren
+                            </button>
+                            <button id="map_button_vegetation_realistic" onclick="choose_vegetation('realistic')"
+                                class="bg-slate-100 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Realistic 
+                            </button>
+                            <button id="map_button_vegetation_overgrown" onclick="choose_vegetation('overgrown')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Overgrown  
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Rivers -->
+                    <div class="pb-2 mt-2 bg-slate-300 rounded-lg">
+                        <div class="text-center"> <b>Rivers:</b> </div>
+                        <!-- Options-->
+                        <div class="flex items-center justify-between w-full">
+                            <button id="map_button_rivers_none" onclick="choose_rivers('none')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                None
+                            </button>
+                            <button id="map_button_rivers_few" onclick="choose_rivers('few')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Few
+                            </button>
+                            <button id="map_button_rivers_medium" onclick="choose_rivers('medium')"
+                                class="bg-slate-100 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Medium  
+                            </button>
+                            <button id="map_button_rivers_overflowing" onclick="choose_rivers('overflowing')"
+                                class="bg-slate-300 mx-1 px-1 rounded-lg border-slate-400 border-4 w-auto h-auto">
+                                Overflowing  
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Warning for huge maps. -->
+                    <div class="hidden text-red-700 text-xs" id="huge_warning"><b>WARNING: </b>Map Size "Huge" is experimental. It may break, generate weirdly, or run into other issues!</div>
+                    <!-- Button to  generate the map. -->
+                    <button onclick="generate()" class="mt-4 text-center text-lg bg-slate-300 border-4 border-slate-400 rounded-lg">
+                        <b>Generate Map</b>
+                    </button>
+                </div>
+            </div>
+            <!-- Section on the right containing the map itself. -->
+            <div class="map_width h-full border-4 border-slate-600 bg-slate-300 rounded-lg">
+                <!-- Blank div for easier targetting from the script.-->
+                <div class="w-full h-full p-8" id="map_space">
+                    <!-- Map will be generated here. -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
